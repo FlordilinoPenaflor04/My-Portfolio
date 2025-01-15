@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me!!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/FPJ.png" type="image/icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            
+            emailjs.init({
+              publicKey: "Cah5TbViaHC9vL7hW",
+            });
+        })();
+    </script>
+
+        <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+   
+                emailjs.sendForm("service_cccpnd4", "template_zuodhvf", this)
+    .then(function(response) {
+        alert("Message sent successfully!");
+        console.log("Success:", response);  
+        document.getElementById('contact-form').reset()
+    }, function(error) {
+        alert("Failed to send message.");
+        console.log("Error:", error);  
+    });
+            });
+        }
+    </script>
+
+    </head>
+    <body>
+            <div class="main-container">
+                <header>
+                    <a href="main.html" class="logo">Portfolio.</a>
+                    <nav>
+                        <ul>
+                            <li><a href="main.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="contacts.html">Contact</a></li>
+                            <li><a href="certificates.html">Certificates</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+               
+                <section class="contact-content">
+                       
+                        <div class="left-content">
+                            <div class="address">
+                                <div class="contact-icon">
+                                    <i class='bx bxs-map'  ></i>
+                                </div>
+                                    
+                                    <h5>Address</h5>
+                                    <p>Caloocan City, Metro Manila, Philippines</p>
+
+                            </div>
+                            <div class="phone">
+                                <div class="contact-icon">
+                                    
+                                    <i class='bx bxs-phone' ></i>
+                                    
+                                    <h5>Phone</h5>
+                                    <p>09933144605</p>
+                                </div>
+                            </div>
+                            <div class="email">
+                                <div class="contact-icon">
+                                    <i class='bx bxs-envelope' ></i>
+                                    <h5>Email</h5>
+                                    <p>flordilinojrpenaflor@gmail.com</p>
+                                    <p>junjunpenaflor2@gmail.com</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <form action="" id="contact-form">
+
+                                <div class="form-content">
+                                    <h2 style="margin-bottom: 2px;">Send me a message</h2>
+                                    <p>If you have any work from me or if you want to hire me, you can send me a message here. Thank you for supporting me! 🥰🤩😘</p>
+                                    <input type="text"  id="full_name" name="full_name" placeholder="Enter Your Full Name" required>
+                                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                                    <textarea id="message" name="message" placeholder="Enter Your Message" required style="resize: none;"></textarea>
+                                    <input type="submit" class="sendbtn" value="Send Now">
+                                </div>
+                                
+                               
+                            </form>
+                            
+                        </div>
+                    </div>
+                
+            </section>
+            
+
+ 
+
+    </body>
+</html>
