@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       intervalId = setInterval(() => {
         currentIndex = (currentIndex + 1) % certificateItems.length; 
         showCertificate(currentIndex);
-      }, 3000); 
+      }, 4500); 
     });
   });
 
@@ -52,5 +52,5 @@ document.addEventListener("DOMContentLoaded", () => {
   intervalId = setInterval(() => {
     currentIndex = (currentIndex + 1) % certificateItems.length; 
     showCertificate(currentIndex);
-  }, 3000); 
+  }, 4500); 
 });
