@@ -17,18 +17,19 @@ body{
     grid-template-columns: repeat(12,1fr);
     grid-template-rows: repeat(12,1fr); 
     height: 100vh; 
+    
 }
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 12;
     width: 100%;
     display: flex;
     justify-content: space-between; 
     align-items: center; 
     padding: 20px 10%; 
-    z-index: 100;
+    position: fixed;
+    /* position: absolute; */
+    /* background-color: wheat; */
+   
 
 }
 .logo {
@@ -40,6 +41,7 @@ header {
     font-family: "Pacifico", serif;
     font-weight: 400;
     font-style: normal;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 header .logo:hover {
@@ -47,30 +49,55 @@ header .logo:hover {
     transform: scale(1.2);
 }
 
-nav ul{
+header nav ul {
     display: flex;
-    overflow: hidden;
     gap: 25px;
     list-style: none;
-    transition: transform 0.3s ease, color 0.3s ease;
 }
+
 .nav-links {
     font-size: 18px;
     font-weight: 500;
     text-decoration: none;
     color: white;
-    transition: transform 0.3s ease, color 0.3s ease !important;
-    
-    
+    position: relative;
+    display: block;
+    transition: transform 0.3s ease, color 0.3s ease!important;
+    padding: 2px;
 }
+
 .nav-links:hover {
     color: #00bfff; 
-    transform: scale(1.2);
-   text-decoration: underline;
+    transform: scale(1.15);
 }
-.nav-links:focus {
-    color: #00bfff;  
-   
+
+.nav-links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #00bfff;
+    transition: width 0.3s ease;
+    transform: scale(1.15);
+}
+
+.nav-links:hover::after {
+    width: 100%;
+    transform: scale(1.15);
+}
+
+.nav-links:focus,
+.nav-links.active {
+    color: #00bfff; 
+    transform: scale(1.15);
+}
+
+.nav-links:focus::after,
+.nav-links.active::after {
+    width: 100%; 
+    transform: scale(1.15);
 }
 
 
@@ -78,12 +105,14 @@ nav ul{
 /* START OF HOME SECTION CSS */
  .home{
     grid-column: 1 / span 12;
-    height: 100vh;  
+    grid-row: 7;
+    height: 70vh;  
     display : flex;
     align-items: center;
     padding: 0 10%;
     justify-content: center;
     /* background-color: white; */
+    
 }
 .home-content {
 
@@ -125,25 +154,23 @@ nav ul{
     color: #3ac7ff;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    /* transition: background-color 0.3s; */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 .btnbox a:hover {
-    background-color: #00bfff;
+    background-color: #00abf0;
     transform: scale(1.3);
-    transition: background-color 0.3s;
     color: white;
     font-weight: 700;
 }
 .btnbox a:active {
-    background-color: #0070bb;
-    transform: scale(1.4);
-    transition: background-color 0.3s;
+
+    background-color: #00abf0;
+    transform: scale(1.3);
 }
 .btnbox a:focus {
-    background-color: #00bfff;
-    /* transform: scale(1.1); */
-    transition: background-color 0.3s;
-    color: white;
+    background-color: #00abf0;
+    transform: scale(1.3);
 }
 
 .background-image {
@@ -187,6 +214,7 @@ div .social-links{
     justify-content: center;
     align-items: center;
     margin: 0 20px 0 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
     
 }
 
@@ -212,11 +240,12 @@ div .social-links{
 .contact-content {
     display: flex;
     grid-column: 7 ;     
-    grid-row: 9 ; 
+    grid-row: 10 ; 
     color: black; 
     border-radius: 10px;
     width: 80vw;
     text-align: center;   
+    margin-bottom: 15px;
 }
 
  .left-content, .address, .phone, .email {
@@ -321,12 +350,15 @@ input, textarea{
     
     display: flex;
     grid-column: 2 / span 10;
-    grid-row: 4 / span 8;
+    grid-row: 10;
+   
     overflow: hidden;
-    height: 550px;
+    height: 83vh;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px 20px 20px 40px;
+    padding: 0px 20px 20px 40px;
+
+
     
 }
 .certificates-wrapper {
@@ -334,11 +366,12 @@ input, textarea{
     width: 100%;
     justify-content: flex-start;
     transition: transform 0.4s ease-in-out;
+    margin-top: 15px;
     
     
 }
 .certificate-item {
-    margin: 10px 0px 0px 20px;
+    margin: 0px 0px 0px 20px;
     padding: 10px;
     gap: 10px;
     border-radius: 10px;
@@ -377,22 +410,23 @@ input, textarea{
 }
 .dots-container {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
+
 }
 
 .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    /* border: 1px solid black; */
     background-color: white;
     opacity: 0.6;
     transition: opacity 0.3s ease;
     cursor: pointer;
+   
 }
 
 .dot.active {
@@ -407,9 +441,9 @@ input, textarea{
 
 @keyframes scrollHorizontally {
     0% {
-        transform: translateX(0); /* Start at the original position */
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(-100%); /* Scroll all the way to the left */
+        transform: translateX(-100%); 
     }
 }
