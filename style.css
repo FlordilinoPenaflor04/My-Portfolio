@@ -32,11 +32,14 @@ header {
 
 }
 header .logo {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     color: white;
     text-decoration: none;
     transition: color 0.3s;
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 header .logo:hover {
@@ -51,7 +54,7 @@ nav ul{
     list-style: none;
     transition: transform 0.3s ease, color 0.3s ease;
 }
-nav ul li a {
+.nav-links {
     font-size: 18px;
     font-weight: 500;
     text-decoration: none;
@@ -60,11 +63,12 @@ nav ul li a {
     
     
 }
-header nav ul li a:hover {
+.nav-links:hover {
     color: #00bfff; 
-    font-weight: bold;  
+    transform: scale(1.2);
+   text-decoration: underline;
 }
-header nav ul li a:focus {
+.nav-links:focus {
     color: #00bfff;  
    
 }
