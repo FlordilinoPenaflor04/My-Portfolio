@@ -27,21 +27,17 @@ header {
     align-items: center; 
     padding: 20px 10%; 
     position: fixed;
-    /* position: absolute; */
-    /* background-color: wheat; */
-   
-
 }
 .logo {
     font-size: 35px;
     font-weight: bold;
     color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.4s;
     font-family: "Pacifico", serif;
     font-weight: 400;
     font-style: normal;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.4s ease, color 0.4s ease;
 }
 
 header .logo:hover {
@@ -62,7 +58,7 @@ header nav ul {
     color: white;
     position: relative;
     display: block;
-    transition: transform 0.3s ease, color 0.3s ease!important;
+    transition: transform 0.4s ease, color 0.4s ease!important;
     padding: 2px;
 }
 
@@ -74,17 +70,17 @@ header nav ul {
 .nav-links::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 3px;
     bottom: -3px;
     width: 0;
     height: 2px;
     background-color: #00bfff;
-    transition: width 0.3s ease;
+    transition: width 0.4s ease;
     transform: scale(1.15);
 }
 
 .nav-links:hover::after {
-    width: 100%;
+    width: 90%;
     transform: scale(1.15);
 }
 
@@ -96,7 +92,7 @@ header nav ul {
 
 .nav-links:focus::after,
 .nav-links.active::after {
-    width: 100%; 
+    width: 90%; 
     transform: scale(1.15);
 }
 
@@ -115,18 +111,12 @@ header nav ul {
     
 }
 .home-content {
-
     max-width: 61%;
-   
     text-align:left;
-    /* background-color: yellow; */
-    
 }
 .home-content h1 {
     font-size: 42px;
     font-weight: bold;
-    
-
 }
 .home-content h3 {
     margin-top: 10px;
@@ -155,7 +145,7 @@ header nav ul {
     padding: 10px 20px;
     border-radius: 5px;
     /* transition: background-color 0.3s; */
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.4s ease, color 0.4s ease;
 }
 .btnbox a:hover {
     background-color: #00abf0;
@@ -175,17 +165,10 @@ header nav ul {
 
 .background-image {
     max-width: 39%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;  
     
-   
 }
-.background-image img {
- 
-    border-radius: 10px;
 
-}
 footer {
     background-color: white;
     display: flex;
@@ -214,7 +197,7 @@ div .social-links{
     justify-content: center;
     align-items: center;
     margin: 0 20px 0 20px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.4s ease, color 0.4s ease;
     
 }
 
@@ -232,7 +215,7 @@ div .social-links{
 .social-links a:focus {
     color: white;
     background-color: #00abf0;
-    transform: scale(1.2);
+    transform: scale(1.5)
 }
 
 /* END OF HOME SECTION CSS */
