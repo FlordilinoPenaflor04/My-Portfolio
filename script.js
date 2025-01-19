@@ -30,11 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = document.querySelectorAll(".dot");
   const certificatesWrapper = document.querySelector(".certificates-wrapper");
   const certificateItems = document.querySelectorAll(".certificate-item");
+  const leftArrow = document.querySelector(".left-arrow");
+  const rightArrow = document.querySelector(".right-arrow");
 
   // Exit early if no certificate items are found
   if (certificateItems.length === 0) return;
 
   let intervalId;
+  let currentIndex = 0;
 
   function updateActiveDot(index) {
     dots.forEach((dot) => dot.classList.remove("active"));
@@ -51,22 +54,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /*
+  function resetAutoSlide() {
+    clearInterval(intervalId);
+    intervalId = setInterval(() => {
+      currentIndex = (currentIndex + 1) % certificateItems.length;
+      showCertificate(currentIndex);
+    }, 4500);
+  }
+  */
+
   // Add click events to dots
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      showCertificate(index);
-      clearInterval(intervalId);
-      intervalId = setInterval(() => {
-        showCertificate((index + 1) % certificateItems.length);
-      }, 4500);
+      currentIndex = index;
+      showCertificate(currentIndex);
+      // resetAutoSlide();
     });
   });
 
-  let currentIndex = 0;
+  // Add click events to arrows
+  leftArrow.addEventListener("click", () => {
+    currentIndex =
+      (currentIndex - 1 + certificateItems.length) % certificateItems.length;
+    showCertificate(currentIndex);
+    // resetAutoSlide();
+  });
+
+  rightArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % certificateItems.length;
+    showCertificate(currentIndex);
+    // resetAutoSlide();
+  });
+
+  // Initialize the carousel
   showCertificate(currentIndex);
 
+  /*
+  // Start the auto-slide
   intervalId = setInterval(() => {
     currentIndex = (currentIndex + 1) % certificateItems.length;
     showCertificate(currentIndex);
   }, 4500);
+  */
 });
